@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKY GODS Enterprise | Trusted Electronics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">SKY GODS <span class="enterprise">Enterprise</span></h1>
+            <div class="header-actions">
+                <button id="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+                <div class="cart-info">🛒 <b id="cart-count">0</b> items - GH$ <span id="cart-total">0.00</span>
+                    <button onclick="clearCart()" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+    Clear Cart
+</button>
+                </div>
+        </div>
+    </header>
+
+    <section class="welcome-banner">
+        <h2 class="colorful-welcome">Welcome to SKY GODS Enterprise</h2>
+        <div class="search-bar-container">
+            <input type="text" id="searchInput" placeholder="Search premium appliances..." oninput="handleSearch()">
+        </div>
+    </section>
+
+    <div class="container">
+        <main class="main-content">
+            <section class="section-block">
+                <h3>🔥 New Arrivals</h3>
+                <div id="arrivalsGrid" class="arrivals-slider"></div>
+            </section>
+
+            <section class="section-block">
+                <h3>All Products</h3>
+                <div id="applianceGrid" class="product-grid"></div>
+            </section>
+
+            <section class="section-block testimonials-section">
+                <h3>What Our Customers Say</h3>
+                <div id="testimonialGrid" class="testimonial-grid"></div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="payment-box">
+                <h4>💳 Wallet Payment</h4>
+                <p>Momo/Cash: <mark>0507762570</mark></p>
+            </div>
+            
+            <div class="cart-box">
+                <h3>Your Cart</h3>
+                <div id="cart-list"></div>
+                <div class="promo-area">
+                    <input type="text" id="promoInput" placeholder="Code (SKY10)">
+                    <button onclick="applyPromo()">Apply</button>
+                </div>
+                <div class="total-details">
+                    <p>Total: <strong>$<span id="final-total">0</span></strong></p>
+                </div>
+                <button class="checkout-btn" onclick="processCheckout()">Checkout to WhatsApp</button>
+            </div>
+        </aside>
+    </div>
+
+    <a href="https://wa.me/233507762570" class="floating-chat" target="_blank">
+        <span>Chat with Us</span>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>
