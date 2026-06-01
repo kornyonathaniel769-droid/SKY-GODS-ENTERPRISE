@@ -89,51 +89,30 @@ rgba(0,0,0,0.2); z-index: 100; }
 { .container { flex-direction:
 column; } .sidebar{ width:
 100%; } }
-/* ==========================================================
-   MOBILE PHONE FORMAT (Applies only to screens under 768px)
-   ========================================================== */
-@media (max-width: 768px) {
-    /* Stacks brand name and cart values vertically */
-    .nav-content {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* Stacks cart totals and action buttons neatly */
-    .cart-info {
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    /* Makes your shop buttons easy to click with a mobile thumb */
-    .cart-info button {
-        width: 90%;
-        max-width: 300px;
-        padding: 12px;
-        margin: 5px 0 !important;
-        font-size: 16px;
-    }
-
-    /* Forces your product grid into 1 solid column instead of 4 */
+/* Forces your product grid into 1 solid column and adds breathing room on the sides */
     .product-grid {
-        grid-template-columns: repeat(1, 1fr) !important;
+        grid-template-columns: 1fr !important;
         padding: 15px;
         gap: 25px;
+        box-sizing: border-box;
     }
 
-    /* Centers the product cards on mobile displays */
+    /* Prevents cards from spilling off the phone screen */
     .product-card {
         margin: 0 auto;
         width: 100%;
-        max-width: 340px;
+        max-width: 90%; /* Leaves a clean edge border on both sides */
+        box-sizing: border-box;
+        text-align: center; /* Centers product text and buttons perfectly */
+        padding: 15px;
     }
 
-    /* Scales down large headers so they don't break lines awkwardly */
-    .colorful-welcome {
-        font-size: 1.8rem;
+    /* FIXES THE IMAGE OVERFLOW: Forces images to scale down inside the card */
+    .product-card img {
+        width: 100% !important; /* Forces width to scale down dynamically */
+        max-width: 100%;
+        height: auto !important; /* Keeps aspect ratio proportional */
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 15px auto; /* Centers the image inside the card */
     }
-}
