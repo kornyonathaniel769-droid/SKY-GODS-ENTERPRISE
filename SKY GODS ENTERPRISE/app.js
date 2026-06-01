@@ -126,19 +126,24 @@ function updateCartUI() {
         
         // 3. Update total price value smoothly
         cartTotalElement.innerText = total.toFixed(2);
-        function checkoutToWhatsApp() {
+    }
+} // <--- This completely and safely closes updateCartUI
+
+function checkoutToWhatsApp() {
     if (cartItems.length === 0) {
         alert("Your cart is empty! Add some premium items before checking out.");
         return;
     }
 
-    // Enter your real phone number here starting with 233
+    // Your actual phone number is perfect here!
     const myWhatsAppNumber = '233507762570'; 
 
     let message = `Hello Sky Gods Enterprise! 🚀\nI would like to place an order:\n\n`;
 
     cartItems.forEach((item, index) => {
-        message += `${index + 1}. ${item.brand} ${item.model} — GH₵ ${item.price}\n`;
+        const brandName = item.brand || "Item";
+        const modelName = item.model || "";
+        message += `${index + 1}. ${brandName} ${modelName} — GH₵ ${item.price}\n`;
     });
 
     const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
@@ -153,8 +158,6 @@ function updateCartUI() {
     updateCartUI();
 
     window.open(whatsappUrl, '_blank');
-}
-    }
 }
 function renderTestimonials() {
     const testimonialGrid = document.getElementById('testimonialGrid');
