@@ -126,6 +126,17 @@ function updateCartUI() {
         
         // 3. Update total price on screen
         cartTotalElement.innerText = total.toFixed(2);
+        // 3. Update total price and button interface on screen
+        cartTotalElement.innerHTML = `
+            <b>${cartItems.length}</b> items — GH₵ ${total.toFixed(2)}
+            <br><br>
+            <button onclick="clearCart()" style="background-color: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; margin-right: 10px; cursor: pointer;">
+                Clear Cart 🗑️
+            </button>
+            <button onclick="checkoutToWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+                Checkout 📱
+            </button>
+        `;
     }
 }
 function renderTestimonials() {
