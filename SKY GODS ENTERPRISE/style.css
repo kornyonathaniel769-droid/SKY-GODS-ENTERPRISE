@@ -89,3 +89,51 @@ rgba(0,0,0,0.2); z-index: 100; }
 { .container { flex-direction:
 column; } .sidebar{ width:
 100%; } }
+/* ==========================================================
+   MOBILE PHONE FORMAT (Applies only to screens under 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+    /* Stacks brand name and cart values vertically */
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Stacks cart totals and action buttons neatly */
+    .cart-info {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Makes your shop buttons easy to click with a mobile thumb */
+    .cart-info button {
+        width: 90%;
+        max-width: 300px;
+        padding: 12px;
+        margin: 5px 0 !important;
+        font-size: 16px;
+    }
+
+    /* Forces your product grid into 1 solid column instead of 4 */
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+        padding: 15px;
+        gap: 25px;
+    }
+
+    /* Centers the product cards on mobile displays */
+    .product-card {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* Scales down large headers so they don't break lines awkwardly */
+    .colorful-welcome {
+        font-size: 1.8rem;
+    }
+}
