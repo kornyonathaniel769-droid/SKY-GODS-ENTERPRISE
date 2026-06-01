@@ -116,27 +116,44 @@ function renderProducts(items) {
 function updateCartUI() {
     const cartCountElement = document.getElementById('cart-count');
     const cartTotalElement = document.getElementById('cart-total');
-    
+
     if (cartCountElement && cartTotalElement) {
-        // 1. Update total item count
+        // 1. Update total item count number safely
         cartCountElement.innerText = cartItems.length;
-        
-        // 2. Calculate total price (Make sure your inventory objects have a .price property)
+
+        // 2. Calculate total price dynamically
         const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
         
-        // 3. Update total price on screen
+        // 3. Update total price value smoothly
         cartTotalElement.innerText = total.toFixed(2);
-        // 3. Update total price and button interface on screen
-        cartTotalElement.innerHTML = `
-            <b>${cartItems.length}</b> items — GH₵ ${total.toFixed(2)}
-            <br><br>
-            <button onclick="clearCart()" style="background-color: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; margin-right: 10px; cursor: pointer;">
-                Clear Cart 🗑️
-            </button>
-            <button onclick="checkoutToWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
-                Checkout 📱
-            </button>
-        `;
+        function checkoutToWhatsApp() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty! Add some premium items before checking out.");
+        return;
+    }
+
+    // Enter your real phone number here starting with 233
+    const myWhatsAppNumber = '233507762570'; 
+
+    let message = `Hello Sky Gods Enterprise! 🚀\nI would like to place an order:\n\n`;
+
+    cartItems.forEach((item, index) => {
+        message += `${index + 1}. ${item.brand} ${item.model} — GH₵ ${item.price}\n`;
+    });
+
+    const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
+    message += `\n💵 *Total Price:* GH₵ ${total.toFixed(2)}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`;
+
+    // Reset shopping basket variables after initiating a sale
+    cartItems = [];
+    localStorage.removeItem('skyGodsCart');
+    updateCartUI();
+
+    window.open(whatsappUrl, '_blank');
+}
     }
 }
 function renderTestimonials() {

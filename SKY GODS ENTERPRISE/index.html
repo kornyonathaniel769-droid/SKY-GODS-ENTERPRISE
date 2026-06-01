@@ -12,11 +12,17 @@
             <h1 class="logo">SKY GODS <span class="enterprise">Enterprise</span></h1>
             <div class="header-actions">
                 <button id="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
-                <div class="cart-info">🛒 <b id="cart-count">0</b> items - GH$ <span id="cart-total">0.00</span>
-                    <button onclick="clearCart()" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 10px;">
-    Clear Cart
-</button>
-                </div>
+                <div class="cart-info" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+    🛒 <span id="cart-count" style="font-weight: bold;">0</span> items - GH₵ <span id="cart-total" style="font-weight: bold;">0.00</span>
+    
+    <button onclick="clearCart()" style="background-color: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+        Clear Cart 🗑️
+    </button>
+    
+    <button onclick="checkoutToWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+        Checkout 📱
+    </button>
+</div>
         </div>
     </header>
 
