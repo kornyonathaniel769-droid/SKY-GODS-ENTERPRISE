@@ -89,31 +89,39 @@ rgba(0,0,0,0.2); z-index: 100; }
 { .container { flex-direction:
 column; } .sidebar{ width:
 100%; } }
-/* FORCES ALL IMAGES AND CONTAINERS TO ALIGN DOWN THE CENTER */
-    .product-grid div, 
+@media (max-width: 768px) {
+    /* Forces BOTH layout grids to drop into a single vertical stream */
+    .product-grid,
+    #arrivalsGrid, /* Add your arrivals grid container ID here */
+    .arrival-card-container { 
+        grid-template-columns: 1fr !important;
+        padding: 10px;
+        gap: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* PREVENTS BOTH CARD TYPES FROM OVERFLOWING THE SCREEN BOUNDARIES */
     .product-card,
-    .product-card * {
+    .arrival-card {
+        margin: 0 auto !important;
+        width: 90% !important;
+        max-width: 340px !important;
         box-sizing: border-box !important;
-    }
-
-    /* THE ULTIMATE IMAGE OVERFLOW FIX */
-    .product-grid img,
-    .product-card img {
-        width: 100% !important;
-        max-width: 260px !important; /* Prevents the image from growing too large */
-        height: 200px !important;    /* Forces a uniform image height box */
-        object-fit: contain !important; /* Scales image beautifully without cropping */
-        display: block !important;
-        margin: 0 auto 15px auto !important; /* Absolutely centers the image block */
-        float: none !important; /* Breaks any desktop alignment wraps */
-    }
-
-    /* Centers titles and prices completely */
-    .product-card h3,
-    .product-card p,
-    .product-card span {
         text-align: center !important;
+        padding: 15px !important;
         display: block !important;
-        width: 100% !important;
-        margin: 5px 0 !important;
     }
+
+    /* FORCES BOTH ARRIVAL AND PRODUCT IMAGES TO CONSTRAIN THEMSELVES */
+    .product-card img,
+    .arrival-card img {
+        width: 100% !important;
+        max-width: 250px !important;
+        height: 200px !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto 15px auto !important;
+    }
+}
