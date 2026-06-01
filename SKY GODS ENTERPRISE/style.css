@@ -89,30 +89,31 @@ rgba(0,0,0,0.2); z-index: 100; }
 { .container { flex-direction:
 column; } .sidebar{ width:
 100%; } }
-/* Forces your product grid into 1 solid column and adds breathing room on the sides */
-    .product-grid {
-        grid-template-columns: 1fr !important;
-        padding: 15px;
-        gap: 25px;
-        box-sizing: border-box;
+/* FORCES ALL IMAGES AND CONTAINERS TO ALIGN DOWN THE CENTER */
+    .product-grid div, 
+    .product-card,
+    .product-card * {
+        box-sizing: border-box !important;
     }
 
-    /* Prevents cards from spilling off the phone screen */
-    .product-card {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 90%; /* Leaves a clean edge border on both sides */
-        box-sizing: border-box;
-        text-align: center; /* Centers product text and buttons perfectly */
-        padding: 15px;
-    }
-
-    /* FIXES THE IMAGE OVERFLOW: Forces images to scale down inside the card */
+    /* THE ULTIMATE IMAGE OVERFLOW FIX */
+    .product-grid img,
     .product-card img {
-        width: 100% !important; /* Forces width to scale down dynamically */
-        max-width: 100%;
-        height: auto !important; /* Keeps aspect ratio proportional */
-        object-fit: contain;
-        display: block;
-        margin: 0 auto 15px auto; /* Centers the image inside the card */
+        width: 100% !important;
+        max-width: 260px !important; /* Prevents the image from growing too large */
+        height: 200px !important;    /* Forces a uniform image height box */
+        object-fit: contain !important; /* Scales image beautifully without cropping */
+        display: block !important;
+        margin: 0 auto 15px auto !important; /* Absolutely centers the image block */
+        float: none !important; /* Breaks any desktop alignment wraps */
+    }
+
+    /* Centers titles and prices completely */
+    .product-card h3,
+    .product-card p,
+    .product-card span {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 5px 0 !important;
     }
